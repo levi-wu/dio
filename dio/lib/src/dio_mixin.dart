@@ -679,6 +679,8 @@ abstract class DioMixin implements Dio {
         stream = Stream.fromIterable(group);
       }
       return addProgress(stream, length, options);
+    } else {
+      options.headers[Headers.contentLengthHeader] = '0';
     }
     return null;
   }
